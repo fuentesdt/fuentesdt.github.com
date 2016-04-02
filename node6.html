@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Motion Correction</TITLE>
-<META NAME="description" CONTENT="Motion Correction">
+<TITLE>Model Assisted Monitoring</TITLE>
+<META NAME="description" CONTENT="Model Assisted Monitoring">
 <META NAME="keywords" CONTENT="david_fuentes">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -41,39 +41,112 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="/usr/share/latex2html/icons/prev.png"></A>   
 <BR>
 <B> Next:</B> <A NAME="tex2html156"
-  HREF="node7.html">Real Time Control for</A>
-<B> Up:</B> <A NAME="tex2html154"
-  HREF="node1.html">Media Gallery</A>
+  HREF="node7.html">Motion Correction</A>
+<B> Up:</B> 
 <B> Previous:</B> <A NAME="tex2html148"
-  HREF="node5.html">Model Assisted Monitoring</A>
+  HREF="node5.html">MR Temperature Imaging</A>
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html157"
+  HREF="node6.html#SECTION00015100000000000000">Patient Specific Calibration</A>
+<LI><A NAME="tex2html158"
+  HREF="node6.html#SECTION00015200000000000000">Kalman Filtered MRTI</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
 
 <H2><A NAME="SECTION00015000000000000000">
-Motion Correction</A>
+Model Assisted Monitoring</A>
 </H2>
 
-<IMG SRC="mediaDir/backgroundCorrection.gif" WIDTH="600">
+<H3><A NAME="SECTION00015100000000000000">
+Patient Specific Calibration</A>
+</H3>
+
+<table>
+<tr>
+<td>
+<IMG SRC="mediaDir/volvismrti.gif" WIDTH="350">
+<BR>
+PRF based temperature imaging 
+<BR>
+Canine prostate model
+</td>
+<td>
+<IMG SRC="mediaDir/prostateProfile.gif" WIDTH="350">
+<BR>
+Calibrated Vs Uncalibrated FEM Model prediction
+</td>
+</tr>
+</table>
+Non-damaging laser test pulses 
+may simultaneously be used for patient safety to verify the application position
+as well as used for calibration the parabolic bioheat transfer model
+on a patient specific basis. PDE constrained optimization problem
+techniques may be used to recover the underlying tissue biothermal and
+optical parameters. The adjoint based techniques typically involve
+O(1e3-1e4) parameters for the inverse problem.
+Calibrated bioheat transfer models are seen to reproduce the MR thermal
+imaging within lest than 2degC accuracy pointwise in space and time.
 
 <P>
-Motion causes data corruting artifacts within the conventional CPD
-MRTI processing algorithm used for monitoring a MRgLITT procedure in
-liver. The shown Maxwell equation based algorithm provides a
-referenceless approach to motion correction and may be applied to
-determine the background phase signal and subsequent difference.
+
+<H3><A NAME="SECTION00015200000000000000">
+Kalman Filtered MRTI</A>
+</H3>
+
+<table>
+<tr>
+<td>
+<IMG SRC="mediaDir/kalmanparam.gif" WIDTH="600">
+<BR>
+Kalman parameter study
+</td>
+<td>
+<IMG SRC="mediaDir/s11524508.gif" WIDTH="600">
+<BR>
+Kalman Uncertainty
+</td>
+</tr>
+</table>
 
 <P>
-<SPAN  CLASS="textbf">Top Right</SPAN> is maxwell correction delta temp.
-Near time = 50 a well formed temperature (degC) is seen in top right. 
-<SPAN  CLASS="textbf">Bottom Right</SPAN> is conventional CPD delta temp 
-<SPAN  CLASS="textbf">Top Left    </SPAN> is cumulative sum of tmap using maxwell correction
-<SPAN  CLASS="textbf">Bottom Left </SPAN> is original tmap.
-Significant inaccuracies in the absolute temperature maps are seen to
-accumulate over the time history in both cases. 
+Kalman Filter theory provides a rigorous mathematical framework
+for combining computer models of the bioheat transfer with
+MR thermal imaging to provide a robust estimate of the temperature state.
+Both uncertainty in the bioheat transfer model 
+and MR temperature imaging acquisition may be exploited. Under this
+probabilistic framework, the mean and variance of temperature isotherms
+and resulting thermal dose may be estimated. The 95% confidence interval
+around the 57degC isotherm is seen to grow and shrink in the bottom right
+given a simulated data corruption.
 
-<P>
-<BR><HR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html155"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html153"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html147"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html156"
+  HREF="node7.html">Motion Correction</A>
+<B> Up:</B> 
+<B> Previous:</B> <A NAME="tex2html148"
+  HREF="node5.html">MR Temperature Imaging</A></DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VNC Remote Desktop Commands</TITLE>
-<META NAME="description" CONTENT="VNC Remote Desktop Commands">
+<TITLE>Useful Commands</TITLE>
+<META NAME="description" CONTENT="Useful Commands">
 <META NAME="keywords" CONTENT="david_fuentes">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,152 +27,387 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html247"
+<A NAME="tex2html243"
   HREF="node15.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
  SRC="/usr/share/latex2html/icons/next.png"></A> 
-<A NAME="tex2html245"
+<A NAME="tex2html241"
   HREF="david_fuentes.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
  SRC="/usr/share/latex2html/icons/up.png"></A> 
-<A NAME="tex2html239"
+<A NAME="tex2html235"
   HREF="node13.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
  SRC="/usr/share/latex2html/icons/prev.png"></A>   
 <BR>
-<B> Next:</B> 
-<B> Up:</B> <A NAME="tex2html246"
+<B> Next:</B> <A NAME="tex2html244"
+  HREF="node15.html">VNC Remote Desktop Commands</A>
+<B> Up:</B> <A NAME="tex2html242"
   HREF="david_fuentes.html">David Fuentes</A>
-<B> Previous:</B> <A NAME="tex2html240"
-  HREF="node13.html">Useful Commands</A>
+<B> Previous:</B> <A NAME="tex2html236"
+  HREF="node13.html">Integrated development environment</A>
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00040000000000000000">
-VNC Remote Desktop Commands</A>
+<H1><A NAME="SECTION00030000000000000000">
+Useful Commands</A>
 </H1>
 
 <P>
 
-<!DOCTYPE html>
-<html>
-	<body>
-		<h1>How to access the Tesla box from a Windows box using the RealVNC viewer?</h1>
-		<h2>Create a Remote Display</h2>
-		<ol>
-			<li>
-				<p>
-					Download <a href="../../programs/putty.exe">PuTTY</a>.
-				</p>
-			</li>
-			<li>
-				<p>
-					Run <code>putty.exe</code>.
-				</p>
-			</li>
-			<li>
-				<p>
-					Open a SSH connection to the Tesla box (IP address: <code>(your IP)</code>, Port: <code>22</code>).
-				</p>
-				<p>
-					<img src="mediaDir/putty_basic_settings.png"/>
-				</p>
-			</li>
-			<li>
-				<p>
-					Log on with your local Tesla box username and password.
-				</p>
-			</li>
-			<li>
-				<p>
-					Start a VNC server process.
-				</p>
-				<p>
-					Command: <code>vncserver -depth 24 -geometry 1024x768</code>
-				</p>
-				<p>
-					If you run this command the first time, you will be asked to set your VNC password.
-				</p>
-				<p>
-					<i>Optional:</i> Change the geometry setting to fit the screen size of your local box.
-				</p>
-			</li>
-			<li>
-				<p>
-					Have a look at the output. The display number is highlighted bold here.
-				</p>
-				<p>
-					<code>
-						New 'SCRGP2:<b>1</b> (<i>username</i>)' desktop is SCRGP2:<b>1</b><br/>
-						Starting applications specified in /home/<i>username</i>/.vnc/xstartup<br/>
-						Log file is /home/<i>username</i>/.vnc/SCRGP2:<b>1</b>.log
-					</code>
-				</p>
-			</li>
-			<li>
-				<p>
-					Your VNC server process is running now. Close PuTTY using the <code>exit</code> command.
-				</p>
-			</li>
-		</ol>
-		<h2>Access a Remote Display</h2>
-		<ol>
-			<li>
-				<p>
-					Download <a href="../../programs/vncviewer.exe">RealVNC viewer</a>.
-				</p>
-			</li>
-			<li>
-				<p>
-					Run <code>vncviewer.exe</code> on your box.
-				</p>
-			</li>
-			<li>
-				<p>
-					Connect to your display (here: <code>1</code>) at the Tesla box (IP address: <code>(your IP)</code>).
-				</p>
-				<p>
-					<img src="mediaDir/realvnc_basic_settings.png"/>
-				</p>
-			</li>
-			<li>
-				<p>
-					Enter your VNC password.
-				</p>
-				<p>
-					<img src="mediaDir/realvnc_authentication.png"/>
-				</p>
-			</li>
-		</ol>
-		<h2>Kill a Remote Display</h2>
-		<ol>
-			<li>
-				Open a SSH connection to the Tesla box (cf 1.3).
-			</li>
+<H4><A NAME="SECTION00030010000000000000">
+DCMTK</A>
+</H4>
 
-			<li>
-				<p>
-					Kill your VNC server process (here: display <code>1</code>).
-				</p>
-				<p>
-					Command: <code>vncserver -kill :1</code>
-				</p>
-				<p>
-					Output: <code>Killing Xvnc process ID <i>id</i></code>
-				</p>
-			</li>
-			<li>
-				<p>
-					Close PuTTY using the <code>exit</code> command.
-				</p>
-			</li>
-		</ol>
-	</body>
-</html>
+<P>
+Command line tools for DICOM manipulation, 
+DICOM Toolkit,
+(<A NAME="tex2html35"
+  HREF="http://support.dcmtk.org/docs/index.html">DCMTK</A>)
+
+<P>
+
+<UL>
+<LI>Query studies for a given medical record number
+<PRE>
+findscu    -P  -k 0008,0052=STUDY   -aet &lt;AET&gt; -aec &lt;AEC&gt; IPAddress Port# -k 0010,0020=&lt;MRN&gt;  -k 0020,000d -k 0008,1030 -k 0008,0020 -k 0008,0050
+</PRE>
+</LI>
+<LI>Query series for a given study UID
+   <PRE>
+findscu    -S  -k 0008,0052=SERIES  -aet &lt;AET&gt; -aec &lt;AEC&gt; IPAddress Port# -k 0020,000D=&lt;StudyUID&gt; -k 0020,000E -k 0008,0060 -k 0010,0020=&lt;MRN&gt; -k 0008,103e
+</PRE>
+</LI>
+<LI>Query images for a given series UID
+   <PRE>
+findscu -v -S  -k 0008,0052=IMAGE  -aet &lt;AET&gt; -aec &lt;AEC&gt; IPAddress Port# -k 0020,000D=&lt;StudyUID&gt; -k 0020,000e=&lt;SeriesUID&gt; -k 0008,1030 -k 0008,0020 -k 0008,0050 -k 0018,0050 -k 0008,0018
+</PRE>
+</LI>
+<LI>Transfer series for a given series UID
+<PRE>
+movescu -v -S  -k 0008,0052=SERIES  -aet &lt;AET&gt; -aec &lt;AEC&gt; IPAddress Port# -k 0020,000D=&lt;StudyUID&gt; -k 0020,000e=&lt;SeriesUID&gt;
+</PRE>
+</LI>
+</UL>
+
+<P>
+
+<H4><A NAME="SECTION00030020000000000000">
+SQL Database</A>
+</H4>
+
+<P>
+<A NAME="tex2html36"
+  HREF="http://www.slicer.org/">Slicer</A>,
+will create an SQL database of DICOM files to manage your project
+
+<UL>
+<LI><A NAME="tex2html37"
+  HREF="http://nrg.wustl.edu/software/dicom-browser/">First obtain a dicom dataset</A>
+<PRE>
+   wget http://nrg.wustl.edu/projects/DICOM/sample1.zip
+</PRE>
+</LI>
+<LI>open Slicer's <A NAME="tex2html38"
+  HREF="http://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Modules/DICOM">DICOM module</A>
+<PRE>
+   vglrun /opt/apps/SLICER/Slicer-4.3.1-linux-amd64/Slicer
+</PRE>
+
+<tr>
+<td>
+<IMG SRC="mediaDir/SlicerDatabaseImport.png" WIDTH="550">
+
+<BR>
+Select the data directory to import and the directory to store the database.
+</td>
+</tr>
+</LI>
+<LI>Slicer will build a ctkDICOM.sql
+          <A NAME="tex2html39"
+  HREF="http://www.sqlite.org/">SQLite</A>
+file
+</LI>
+<LI>The database is arranged in a hierarchy of SQL tables. A unique
+          identifier (UID) is associated with each entry in the table.
+    
+<UL>
+<LI>Patients -&gt; Studies -&gt; Series -&gt; Images
+    
+</LI>
+</UL>
+<PRE>
+$ sqlite3 ctkDICOM.sql
+SQLite version 3.6.22
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite&gt; select * from sqlite_master;
+table|SchemaInfo|SchemaInfo|2|CREATE TABLE 'SchemaInfo' ( 'Version' VARCHAR(1024) NOT NULL )
+table|Images|Images|3|CREATE TABLE 'Images' (   'SOPInstanceUID' VARCHAR(64)
+NOT NULL,   'Filename' VARCHAR(1024) NOT NULL ,   'SeriesInstanceUID'
+VARCHAR(64) NOT NULL ,   'InsertTimestamp' VARCHAR(20) NOT NULL ,   PRIMARY
+KEY ('SOPInstanceUID') ) 
+index|sqlite_autoindex_Images_1|Images|4|
+table|Patients|Patients|5|CREATE TABLE 'Patients' (   'UID' INTEGER PRIMARY KEY AUTOINCREMENT,   'PatientsName' VARCHAR(255) NULL ,   'PatientID' VARCHAR(255) NULL ,   'PatientsBirthDate' DATE NULL ,   'PatientsBirthTime' TIME NULL ,   'PatientsSex' varchar(1) NULL ,   'PatientsAge' varchar(10) NULL ,   'PatientsComments' VARCHAR(255) NULL )
+table|sqlite_sequence|sqlite_sequence|6|CREATE TABLE sqlite_sequence(name,seq)
+table|Series|Series|7|CREATE TABLE 'Series' (   'SeriesInstanceUID' VARCHAR(64) NOT NULL ,   'StudyInstanceUID' VARCHAR(64) NOT NULL , 'SeriesNumber' INT NULL ,   'SeriesDate' DATE NULL ,   'SeriesTime' VARCHAR(20) NULL ,   'SeriesDescription' VARCHAR(255) NULL ,   'Modality' VARCHAR(20) NULL ,   'BodyPartExamined' VARCHAR(255) NULL , 'FrameOfReferenceUID' VARCHAR(64) NULL ,   'AcquisitionNumber' INT NULL , 'ContrastAgent' VARCHAR(255) NULL ,   'ScanningSequence' VARCHAR(45) NULL , 'EchoNumber' INT NULL ,   'TemporalPosition' INT NULL ,   PRIMARY KEY ('SeriesInstanceUID') )
+index|sqlite_autoindex_Series_1|Series|8|
+table|Studies|Studies|11|CREATE TABLE 'Studies' (   'StudyInstanceUID' VARCHAR(64) NOT NULL ,   'PatientsUID' INT NOT NULL ,   'StudyID' VARCHAR(255) NULL ,   'StudyDate' DATE NULL ,   'StudyTime' VARCHAR(20) NULL ,   'AccessionNumber' VARCHAR(255) NULL ,   'ModalitiesInStudy' VARCHAR(255) NULL ,   'InstitutionName' VARCHAR(255) NULL ,   'ReferringPhysician' VARCHAR(255) NULL ,   'PerformingPhysiciansName' VARCHAR(255) NULL , 'StudyDescription' VARCHAR(255) NULL ,   PRIMARY KEY ('StudyInstanceUID') )
+index|sqlite_autoindex_Studies_1|Studies|12|
+index|ImagesFilenameIndex|Images|14|CREATE UNIQUE INDEX 'ImagesFilenameIndex' ON 'Images' ('Filename')
+index|ImagesSeriesIndex|Images|15|CREATE INDEX 'ImagesSeriesIndex' ON 'Images' ('SeriesInstanceUID')
+index|SeriesStudyIndex|Series|16|CREATE INDEX 'SeriesStudyIndex' ON 'Series' ('StudyInstanceUID')
+index|StudiesPatientIndex|Studies|17|CREATE INDEX 'StudiesPatientIndex' ON 'Studies' ('PatientsUID')
+table|Directories|Directories|18|CREATE TABLE 'Directories' (   'Dirname' VARCHAR(1024) ,   PRIMARY KEY ('Dirname') )
+index|sqlite_autoindex_Directories_1|Directories|19|
+</PRE>
+</LI>
+<LI>List all patients
+<PRE>
+sqlite&gt; select * from Patients;
+1|Sample Patient|Sample ID|1975-12-31||F||
+</PRE>
+</LI>
+<LI>List all studies for Patient with anonymized unique identifier=1
+<PRE>
+sqlite&gt; select * from Studies where PatientsUID=1;
+1.3.12.2.1107.5.2.32.35177.30000006121218324675000000034|1|1|2006-12-14|091206.156000|.||Hospital|||head^DHead
+</PRE>
+</LI>
+<LI>List all series for a given Study UID
+<PRE>
+sqlite&gt; select * from Series where StudyInstanceUID='1.3.12.2.1107.5.2.32.35177.30000006121218324675000000034';
+1.3.12.2.1107.5.2.32.35177.3.2006121409455295707319315.0.0.0|1.3.12.2.1107.5.2.32.35177.30000006121218324675000000034|6|2006-12-14|095148.593000|t2_spc_1mm_p2|MR|HEAD|1.3.12.2.1107.5.2.32.35177.1.20061214091206328.0.0.0|1||SE|1|0
+1.3.12.2.1107.5.2.32.35177.3.2006121409371282268118605.0.0.0|1.3.12.2.1107.5.2.32.35177.30000006121218324675000000034|5|2006-12-14|094549.875000|t1_mpr_1mm_p2_pos50|MR|HEAD|1.3.12.2.1107.5.2.32.35177.1.20061214091206328.0.0.0|1||GR|1|0
+1.3.12.2.1107.5.2.32.35177.3.2006121409284535196417894.0.0.0|1.3.12.2.1107.5.2.32.35177.30000006121218324675000000034|4|2006-12-14|093711.593000|t1_mpr_1mm_p2_pos50|MR|HEAD|1.3.12.2.1107.5.2.32.35177.1.20061214091206328.0.0.0|1||GR|1|0
+</PRE>
+</LI>
+<LI>List all images for a given Series UID
+<PRE>
+sqlite&gt; select * from Images where SeriesInstanceUID='1.3.12.2.1107.5.2.32.35177.3.2006121409371282268118605.0.0.0' limit 3;
+1.3.12.2.1107.5.2.32.35177.3.2006121409454232379618816|/home/bootcamp/Data/sample1/1.MR.head_DHead.5.33.20061214.091206.156000.2379618816.dcm|1.3.12.2.1107.5.2.32.35177.3.2006121409371282268118605.0.0.0|2014-08-16T12:20:00
+1.3.12.2.1107.5.2.32.35177.3.2006121409454929962319192|/home/bootcamp/Data/sample1/1.MR.head_DHead.5.127.20061214.091206.156000.9962319192.dcm|1.3.12.2.1107.5.2.32.35177.3.2006121409371282268118605.0.0.0|2014-08-16T12:20:01
+1.3.12.2.1107.5.2.32.35177.3.2006121409454611312919020|/home/bootcamp/Data/sample1/1.MR.head_DHead.5.84.20061214.091206.156000.1312919020.dcm|1.3.12.2.1107.5.2.32.35177.3.2006121409371282268118605.0.0.0|2014-08-16T12:20:01
+</PRE>
+</LI>
+<LI>Join across tables to summarize data
+<PRE>
+sqlite&gt; select pt.patientid,sd.PatientsUID,se.seriesNumber,se.seriesdate,se.seriesinstanceuid 
+        from studies sd 
+        join series se on sd.Studyinstanceuid=se.studyinstanceuid 
+        join patients pt on sd.patientsuid=pt.uid 
+        limit 20 ;
+</PRE>
+</LI>
+<LI>Group Multiple Tables and write csv
+<PRE>
+.mode csv
+.output segmentation.csv
+select pt.PatientID, sd.OID, sd.StudyDate,
+       t1.SeriesDescription , --t1.SeriesInstanceUID ,
+       t2.SeriesDescription , --t2.SeriesInstanceUID ,
+       fl.SeriesDescription , --fl.SeriesInstanceUID ,
+       tc.SeriesDescription , --tc.SeriesInstanceUID ,
+       sd.StudyDescription
+from Studies   sd
+join Patients  pt on sd.PatientsUID=pt.UID
+join Series    t1 on sd.StudyInstanceUID=t1.StudyInstanceUID
+join Series    t2 on sd.StudyInstanceUID=t2.StudyInstanceUID
+join Series    fl on sd.StudyInstanceUID=fl.StudyInstanceUID
+join Series    tc on sd.StudyInstanceUID=tc.StudyInstanceUID
+where t1.SeriesDescription like '%T1%' and t1.SeriesDescription not like
+'%+C%' and t1.SeriesDescription not like '%ther%' and t1.SeriesDescription
+not like '%t-map%'
+and   t1.SeriesDescription not like '%post%' and t1.SeriesDescription not
+like '%fiber%' and t1.SeriesDescription not like '%CRANIOTOMY%'
+and   t1.SeriesDescription not like '%dt1%'
+and   t2.SeriesDescription like '%T2%' and t2.SeriesDescription not like
+'%cor%' and t2.SeriesDescription not like '%T2*%' and t2.SeriesDescription
+not like '%t-map%'
+and   t2.SeriesDescription not like '%+c%' and   t2.SeriesDescription not
+like '%flair%' and   t2.SeriesDescription not like '%weighted%'
+and   t2.SeriesDescription not like '%2%*%' and   t2.SeriesDescription not
+like '%star%'
+and   fl.SeriesDescription like '%flair%'  and fl.SeriesDescription not like
+'%cor%'
+and   sd.StudyDescription like 'MRI%BRAIN%CONTRAST'
+and   tc.SeriesDescription like '%T1%' and tc.SeriesDescription     like
+'%+C%'
+and   tc.SeriesDescription like '%sag%';
+.output stdout
+</PRE>
+</LI>
+<LI>Access the database from MATLAB: <code>http://sourceforge.net/projects/mksqlite/</code>
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H4><A NAME="SECTION00030030000000000000">
+GNU make</A>
+</H4>
+
+<P>
+Use 
+<A NAME="tex2html40"
+  HREF="http://www.gnu.org/software/make/manual/make.html">GNU make</A>,
+to run multiple commands simulateously for batch processing on a single
+workstation. The below example will execute 4 processes.
+<PRE>
+$ make -j 4 -f parallel.makefile
+echo target1 cmd1
+echo target2 cmd1
+echo target3 cmd1
+echo target4 cmd1
+target3 cmd1
+target4 cmd1
+target2 cmd1
+target1 cmd1
+echo target3 cmd2
+echo target1 cmd2
+echo target2 cmd2
+echo target4 cmd2
+target3 cmd2
+target1 cmd2
+echo target3 cmd3
+echo target1 cmd3
+target2 cmd2
+target3 cmd3
+echo target2 cmd3
+target4 cmd2
+echo target4 cmd3
+target1 cmd3
+target2 cmd3
+target4 cmd3
+</PRE>
+The file <A NAME="tex2html41"
+  HREF="./parallel.makefile">parallel.makefile</A>
+contains
+<PRE>
+all: target1 target2 target3 target4
+
+target1:
+	echo $@ cmd1
+	echo $@ cmd2
+	echo $@ cmd3
+target2:
+	echo $@ cmd1
+	echo $@ cmd2
+	echo $@ cmd3
+target3:
+	echo $@ cmd1
+	echo $@ cmd2
+	echo $@ cmd3
+target4:
+	echo $@ cmd1
+	echo $@ cmd2
+	echo $@ cmd3
+</PRE>
+
+<P>
+
+<H4><A NAME="SECTION00030040000000000000">
+Rsync</A>
+</H4>
+<PRE>
+rsync -avz -v --include='*/' --include='fem_stats*.e' --exclude='*' source/ target/
+</PRE>
+
+<P>
+
+<H4><A NAME="SECTION00030050000000000000">
+Permissions</A>
+</H4>
+<PRE>
+to set permissions recursively on a directory
+
+chmod -R g+=rwXs *
+
+or
+
+find ./some/directory/ -type f -exec chmod g+rw {} \; #files
+
+find ./some/directory/ -type d -exec chmod g+rwx {} \; #directories
+
+umask 0027
+for -rwxr-x--- (dir) -rw-r----- (file) default permissions
+</PRE>
+
+<P>
+
+<H4><A NAME="SECTION00030060000000000000">
+PYCLEWN</A>
+</H4>
+PYCLEWN debug:
+(1) start inferior_tty
+(2) attach pyclewn to  inferior_tty
+
+<P>
+<PRE>
+SCRGP2$ inferior_tty.py
+'inferior_tty' two characters sequence commands:
+    'C-a q' exit immediately
+    'C-a c' close the slave pseudo terminal and exit after the gdb
+inferior has
+            terminated
+    'C-a a' send a 'C-a' character
+
+/dev/pts/15 pseudo terminal has been created.
+Set the tty for the program being debugged with the gdb commands:
+set inferior-tty /dev/pts/1
+set environment TERM = screen
+
+SCRGP2$ pyclewn --tty=/dev/pts/1 -a '--args ./FocusUltraSoundModel -snes_monitor -da_vec_type cusp -snes_converged_reason -ksp_monitor -log_summary -pc_type jacobi -dm_mat_type seqaijcusp'
+</PRE>
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><UL>
+<LI><A NAME="tex2html245"
+  HREF="node14.html#SECTION00030010000000000000">DCMTK</A>
+<LI><A NAME="tex2html246"
+  HREF="node14.html#SECTION00030020000000000000">SQL Database</A>
+<LI><A NAME="tex2html247"
+  HREF="node14.html#SECTION00030030000000000000">GNU make</A>
+<LI><A NAME="tex2html248"
+  HREF="node14.html#SECTION00030040000000000000">Rsync</A>
+<LI><A NAME="tex2html249"
+  HREF="node14.html#SECTION00030050000000000000">Permissions</A>
+<LI><A NAME="tex2html250"
+  HREF="node14.html#SECTION00030060000000000000">PYCLEWN</A>
+</UL></UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html243"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html241"
+  HREF="david_fuentes.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html235"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html244"
+  HREF="node15.html">VNC Remote Desktop Commands</A>
+<B> Up:</B> <A NAME="tex2html242"
+  HREF="david_fuentes.html">David Fuentes</A>
+<B> Previous:</B> <A NAME="tex2html236"
+  HREF="node13.html">Integrated development environment</A></DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>
