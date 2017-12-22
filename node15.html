@@ -53,13 +53,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <H1><A NAME="SECTION00030000000000000000">
 Useful Commands</A>
 </H1>
-
 <P>
 
 <H4><A NAME="SECTION00030010000000000000">
 DCMTK</A>
 </H4>
-
 <P>
 Command line tools for DICOM manipulation, 
 DICOM Toolkit,
@@ -96,7 +94,6 @@ movescu -v -S  -k 0008,0052=SERIES  -aet &lt;AET&gt; -aec &lt;AEC&gt; IPAddress 
 <H4><A NAME="SECTION00030020000000000000">
 SQL Database</A>
 </H4>
-
 <P>
 <A NAME="tex2html36"
   HREF="http://www.slicer.org/">Slicer</A>,
@@ -311,8 +308,7 @@ target4:
 
 <H4><A NAME="SECTION00030040000000000000">
 Rsync</A>
-</H4>
-<PRE>
+</H4><PRE>
 rsync -avz -v --include='*/' --include='fem_stats*.e' --exclude='*' source/ target/
 </PRE>
 
@@ -320,8 +316,7 @@ rsync -avz -v --include='*/' --include='fem_stats*.e' --exclude='*' source/ targ
 
 <H4><A NAME="SECTION00030050000000000000">
 Permissions</A>
-</H4>
-<PRE>
+</H4><PRE>
 to set permissions recursively on a directory
 
 chmod -R g+=rwXs *
@@ -340,8 +335,7 @@ for -rwxr-x--- (dir) -rw-r----- (file) default permissions
 
 <H4><A NAME="SECTION00030060000000000000">
 PYCLEWN</A>
-</H4>
-PYCLEWN debug:
+</H4>PYCLEWN debug:
 (1) start inferior_tty
 (2) attach pyclewn to  inferior_tty
 
